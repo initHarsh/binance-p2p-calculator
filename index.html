@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Aht</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+
+<body>
+	<form name="form">
+		<p>Coin Price you buy at :</p>
+		<input type="number" name="buyprice" placeholder="you buy at " >
+		
+		<p>Coin Price you sell at :</p>
+		<input type="number" name="sellprice" placeholder="you sell at " >
+		
+		
+		<button onclick="calc()">Calculate</button>
+	
+	</form>
+	<p class="result"></p>
+
+	<form name="form2">
+		<p>Coin Price you buy at :</p>
+		<input type="number" name="buyprice2" placeholder="you buy at " >
+		
+		
+		<p>Coin Price you sell at  :</p>
+		<input type="number" name="sellprice2a" placeholder="coin price in Usdt " > X 
+		<input type="number" name="sellprice2b" placeholder=" Usdt in INR " >
+		
+		<button onclick="calc2()">Calculate</button>
+	
+	</form>
+	<p class="result2"></p>
+	
+	<h1>Logs : </h1>
+	<p class="log"></p>
+
+<script type="text/javascript">
+	function calc(){
+		event.preventDefault()
+		var buyprice= document.form.buyprice.value
+		var sellprice= document.form.sellprice.value
+		var r = (sellprice-buyprice)/buyprice*100
+		
+		document.querySelector(".result").innerHTML=r
+		document.querySelector(".log").innerHTML="buy at: "+buyprice+"  |  sell at: "+sellprice+"  =  profit : "+r
+		console.log(r)
+		
+		
+		}
+			function calc2(){
+		event.preventDefault()
+		var buyprice2= document.form2.buyprice2.value
+		var sellprice2a= document.form2.sellprice2a.value
+		var sellprice2b= document.form2.sellprice2b.value
+		var r2 = ((sellprice2a*sellprice2b)-buyprice2)/buyprice2*100
+		
+		document.querySelector(".result2").innerHTML=(sellprice2a*sellprice2b)+"/"+r2
+		document.querySelector(".log").innerHTML="buy at: "+buyprice2+"  |  sell at: ("+sellprice2a+" x "+sellprice2b+") "+(sellprice2a*sellprice2b)+"  =  profit : "+r2
+		console.log(r2)
+		
+		
+		}
+
+</script>
+</body>
+</html>
